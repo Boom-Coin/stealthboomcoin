@@ -573,9 +573,10 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         return error("CTxMemPool::accept() : not accepting nLockTime beyond 2038 yet");
 
     // Rather not work on nonstandard transactions (unless -testnet)
-    if (!fTestNet && !tx.IsStandard())
-        return error("CTxMemPool::accept() : nonstandard transaction type");
-
+    if (pindexBest->nHeight < 20000) {
+		if (!fTestNet && !tx.IsStandard())
+			return error("CTxMemPool::accept() : nonstandard transaction type");
+    }
     // Do we already have it?
     uint256 hash = tx.GetHash();
     {
