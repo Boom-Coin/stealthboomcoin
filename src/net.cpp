@@ -1247,7 +1247,7 @@ void MapPort()
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = {
     {"107.170.88.155", "107.170.88.155"}, //Main BoomCoin Seed Node
-	{"107.170.178.208", "107.170.178.208"},
+	{"104.131.35.160", "104.131.35.160"},
 };
 
 void ThreadDNSAddressSeed(void* parg)
